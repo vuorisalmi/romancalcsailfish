@@ -35,6 +35,10 @@ import Sailfish.Silica 1.0
 Page {
     id: page
 
+    Calculator {
+        id: calculator
+    }
+
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
         anchors.fill: parent
@@ -60,62 +64,98 @@ Page {
             PageHeader {
                 title: "UI Template"
             }
+
             Label {
-                x: Theme.paddingLarge
-                text: "Hello Sailors"
-                color: Theme.secondaryHighlightColor
-                font.pixelSize: Theme.fontSizeExtraLarge
+                id: romanLabel
+                text: calculator.romanExpression
+                // TODO: ...
+                width: 500
+                wrapMode: TextEdit.WrapAnywhere
+                horizontalAlignment: TextEdit.AlignRight
+                verticalAlignment: TextEdit.AlignBottom
             }
 
+
+
             Row {
-                Button {
-                    text: "test 1"
-                    onClicked: console.log("button 1")
+                spacing: 10
+                //CalcButton {
+                //    name: "menu"
+                //    onClicked: (calcMenu.status === DialogStatus.Closed) ? calcMenu.open() : calcMenu.close() }
+                //NoButton {
+                //}
+                CalcButton {
+                    name: "CLR"
+                    onClicked: { calculator.pressClear(); }
                 }
-                Button {
-                    text: "test 2"
-                    onClicked: console.log("button 2")
+                CalcButton {
+                    name: "BkSp"
+                    onClicked: { calculator.pressBackspace(); }
                 }
             }
             Row {
-                IconButton {
-                    icon.source: "/usr/share/romancalcsailfish/qml/icons/icon_L_64.png"
-                    icon.height: 64
-                    icon.width: 64
-                    onClicked: console.log("button L")
-                    height: 90
-                    width: 90
+                spacing: 10
+                CalcButton {
+                    name: "plus"
+                    oper: "+"
+                    onClicked: { calculator.pressOper(oper); }
                 }
-                IconButton {
-                    //icon.source: Qt.resolvedUrl("icons/icon_M_64.png")
-                    icon.source: "../icons/icon_M_64.png"
-                    icon.height: 64
-                    icon.width: 64
-                    onClicked: console.log("button M")
-                    height: 90
-                    width: 90
+                CalcButton {
+                    name: "minus"
+                    oper: "−" // not "-"
+                    onClicked: { calculator.pressOper(oper); }
                 }
-                Image {
-                    width: 64
-                    height: 64
-                    source: Qt.resolvedUrl("icons/icon_C_64.png")
+                CalcButton {
+                    name: "multiply"
+                    oper: "×"
+                    onClicked: { calculator.pressOper(oper); }
                 }
-                Image {
-                    width: 64
-                    height: 64
-                    source: Qt.resolvedUrl("icon_menu_64.png")
-                    //source: "qml/icon_menu_64.png"
+                CalcButton {
+                    name: "divide"
+                    oper: "÷"
+                    onClicked: { calculator.pressOper(oper); }
                 }
-                Rectangle {
-                    width: 100
-                    height: 100
-                    color: "#ff0000"
+            }
+            Row {
+                spacing: 10
+                CalcButton {
+                    name: "L"
+                    onClicked: { calculator.pressRoman(name); }
+                }
+                CalcButton {
+                    name: "C"
+                    onClicked: { calculator.pressRoman(name); }
+                }
+                CalcButton {
+                    name: "D"
+                    onClicked: { calculator.pressRoman(name); }
                 }
                 CalcButton {
                     name: "M"
-                    onClicked: console.log("calcButton clicked: " + name)
+                    onClicked: { calculator.pressRoman(name); }
                 }
             }
+            Row {
+                spacing: 10
+                CalcButton {
+                    name: "I"
+                    onClicked: { calculator.pressRoman(name); }
+                }
+                CalcButton {
+                    name: "V"
+                    onClicked: { calculator.pressRoman(name); }
+                }
+                CalcButton {
+                    name: "X"
+                    onClicked: { calculator.pressRoman(name); }
+                }
+                CalcButton {
+                    name: "equals"
+                    oper: "="
+                    onClicked: { calculator.pressEquals(); }
+                }
+            }
+
         }
     }
 }

@@ -11,11 +11,14 @@ Item {
     width: 96
     height: 96
 
-    // TODO: remove
+    // TODO: replace with something better
     Rectangle {
+        id: highlightImage
         width: parent.width
         height: parent.height
+        anchors.centerIn: parent
         color: "#ffaa00"
+        visible: false
     }
 
     // Calculator button that shows the corresponding icon (the normal case)
@@ -32,10 +35,10 @@ Item {
         height: 96
 
         onPressed: {
-            //highlightImage.visible = true;
+            highlightImage.visible = true;
         }
         onReleased: {
-            //highlightImage.visible = false;
+            highlightImage.visible = false;
             calcButton.clicked();
         }
     }

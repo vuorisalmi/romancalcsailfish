@@ -27,5 +27,18 @@ OTHER_FILES += qml/romancalcsailfish.qml \
     qml/icons/icon_D_64.png \
     qml/icons/icon_C_64.png \
     qml/icon_menu_64.png \
-    qml/pages/CalcButton.qml
+    qml/pages/CalcButton.qml \
+    qml/pages/Roman.qml \
+    qml/pages/Calculator.qml \
+    qml/pages/romanhelp.js \
+    qml/icons/icon_X_64.png \
+    qml/icons/icon_V_64.png \
+    qml/icons/icon_plus_64.png \
+    qml/icons/icon_multiply_64.png \
+    qml/icons/icon_minus_64.png \
+    qml/icons/icon_I_64.png \
+    qml/icons/icon_equals_64.png \
+    qml/icons/icon_divide_64.png \
+    qml/icons/icon_CLR_64.png \
+    qml/icons/icon_BkSp_64.png
 
