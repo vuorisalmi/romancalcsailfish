@@ -40,5 +40,6 @@ OTHER_FILES += qml/romancalcsailfish.qml \
     qml/icons/icon_equals_64.png \
     qml/icons/icon_divide_64.png \
     qml/icons/icon_CLR_64.png \
-    qml/icons/icon_BkSp_64.png
+    qml/icons/icon_BkSp_64.png \
+    TODO.txt
 

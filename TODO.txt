@@ -1,0 +1,25 @@
+Roman Calc / Sailfish OS
+==================
+
+* About page
+
+* About roman numbers page, same as the other about page?
+
+* Highlight graphics of buttons
+
+* Bug: Button highlight stays if touch release elsewhere
+
+* Position of the CRL button, move it
+
+* Copy roman number to clipboard
+
+* Color of the oper etc. buttons, non-white?
+
+* Cover page
+
+* App icon
+
+* Desktop file: name
+
+* .deb package version number and descirptions, changelog --> 1.0.0
+
