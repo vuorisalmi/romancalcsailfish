@@ -39,8 +39,15 @@ Page {
         id: calculator
     }
 
+    // Page and element sizes and other constants
+    property int _keyButtonSize: 96  // hight == width
+    property int _keypadPaddingH: (Screen.width - (5 * _keyButtonSize)) / 6  // horizontal padding
+    property int _keypadPaddingV: Theme.paddingMedium  // vertical padding
+    property int _keypadHeight: (3 * _keyButtonSize) + (4 * _keypadPaddingV)
+
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
+        id: flickable
         anchors.fill: parent
 
         // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
@@ -54,47 +61,67 @@ Page {
         // Tell SilicaFlickable the height of its content.
         contentHeight: column.height
 
+        VerticalScrollDecorator { flickable: flickable }
+
         // Place our content in a Column.  The PageHeader is always placed at the top
         // of the page, followed by our content.
         Column {
             id: column
 
-            width: page.width
-            spacing: Theme.paddingLarge
-            PageHeader {
-                title: "UI Template"
+            width: page.width - (2 * Theme.paddingLarge)
+            anchors.horizontalCenter: parent.horizontalCenter
+            spacing: 0
+
+            // Add some space to the top
+            Item {
+                width: parent.width
+                height: Theme.paddingLarge
             }
 
             Label {
                 id: romanLabel
                 text: calculator.romanExpression
-                // TODO: ...
-                width: 500
+                width: parent.width
                 wrapMode: TextEdit.WrapAnywhere
                 horizontalAlignment: TextEdit.AlignRight
                 verticalAlignment: TextEdit.AlignBottom
+                color: Theme.highlightColor
+                font.pixelSize: (text.length > 300) ? Theme.fontSizeMedium : Theme.fontSizeLarge
             }
 
-
-
-            Row {
-                spacing: 10
-                //CalcButton {
-                //    name: "menu"
-                //    onClicked: (calcMenu.status === DialogStatus.Closed) ? calcMenu.open() : calcMenu.close() }
-                //NoButton {
-                //}
-                CalcButton {
-                    name: "CLR"
-                    onClicked: { calculator.pressClear(); }
-                }
-                CalcButton {
-                    name: "BkSp"
-                    onClicked: { calculator.pressBackspace(); }
-                }
+            // Add lots of space to the bottom -- allow pulling the roman expression
+            // high enough so that it is not covered by the keypad
+            Item {
+                width: parent.width
+                height: _keypadHeight + Theme.paddingMedium
             }
+        }
+    }
+
+    // Non-pannable area with the calculator keypad
+    Item {
+        id: keypadbg
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        width: page.width
+        height: _keypadHeight
+
+        Rectangle {
+            anchors.fill: parent
+            color: "#000000"
+            opacity: 0.4
+        }
+
+        Column {
+            width: page.width
+            spacing: _keypadPaddingV
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.leftMargin: _keypadPaddingV
+            anchors.topMargin: _keypadPaddingH
+
             Row {
-                spacing: 10
+                spacing: _keypadPaddingH
                 CalcButton {
                     name: "plus"
                     oper: "+"
@@ -115,9 +142,14 @@ Page {
                     oper: "÷"
                     onClicked: { calculator.pressOper(oper); }
                 }
+                CalcButton {
+                    name: "equals"
+                    oper: "="
+                    onClicked: { calculator.pressEquals(); }
+                }
             }
             Row {
-                spacing: 10
+                spacing: _keypadPaddingH
                 CalcButton {
                     name: "L"
                     onClicked: { calculator.pressRoman(name); }
@@ -134,9 +166,13 @@ Page {
                     name: "M"
                     onClicked: { calculator.pressRoman(name); }
                 }
+                CalcButton {
+                    name: "BkSp"
+                    onClicked: { calculator.pressBackspace(); }
+                }
             }
             Row {
-                spacing: 10
+                spacing: _keypadPaddingH
                 CalcButton {
                     name: "I"
                     onClicked: { calculator.pressRoman(name); }
@@ -150,13 +186,11 @@ Page {
                     onClicked: { calculator.pressRoman(name); }
                 }
                 CalcButton {
-                    name: "equals"
-                    oper: "="
-                    onClicked: { calculator.pressEquals(); }
+                    name: "CLR"
+                    onClicked: { calculator.pressClear(); }
                 }
             }
-
-        }
+        } // Column
     }
 }
 

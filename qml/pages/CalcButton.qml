@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import Sailfish.Silica 1.0
 
 Item {
     id: calcButton
@@ -17,7 +18,7 @@ Item {
         width: parent.width
         height: parent.height
         anchors.centerIn: parent
-        color: "#ffaa00"
+        color: Theme.highlightColor
         visible: false
     }
 
