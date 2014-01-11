@@ -1,8 +1,6 @@
 Roman Calc / Sailfish OS
 ========================
 
-* Color of the oper etc. buttons, non-white?
-
 * About page
 
 * About roman numbers page, same as the other about page?
@@ -19,5 +17,5 @@ Roman Calc / Sailfish OS
 
 * Desktop file: name
 
-* .deb package version number and descirptions, changelog --> 1.0.0
+* .rpm package version number and descirptions, changelog --> 1.0.0
 

@@ -150,26 +150,31 @@ Page {
                 CalcButton {
                     name: "plus"
                     oper: "+"
+                    highlight: true
                     onClicked: { calculator.pressOper(oper); }
                 }
                 CalcButton {
                     name: "minus"
                     oper: "−" // not "-"
+                    highlight: true
                     onClicked: { calculator.pressOper(oper); }
                 }
                 CalcButton {
                     name: "multiply"
                     oper: "×"
+                    highlight: true
                     onClicked: { calculator.pressOper(oper); }
                 }
                 CalcButton {
                     name: "divide"
                     oper: "÷"
+                    highlight: true
                     onClicked: { calculator.pressOper(oper); }
                 }
                 CalcButton {
                     name: "equals"
                     oper: "="
+                    highlight: true
                     onClicked: { calculator.pressEquals(); }
                 }
             }
@@ -193,6 +198,7 @@ Page {
                 }
                 CalcButton {
                     name: "BkSp"
+                    highlight: true
                     onClicked: { calculator.pressBackspace(); }
                 }
             }
@@ -215,6 +221,7 @@ Page {
                 }
                 CalcButton {
                     name: "CLR"
+                    highlight: true
                     onClicked: { calculator.pressClear(); }
                 }
             }
