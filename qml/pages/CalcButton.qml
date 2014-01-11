@@ -26,6 +26,7 @@ Item {
     Image {
         source: "../icons/icon_" + name + "_64.png"
         anchors.centerIn: parent
+        visible: name !== "empty"
     }
 
 
@@ -36,7 +37,7 @@ Item {
         height: 96
 
         onPressed: {
-            highlightImage.visible = true;
+            highlightImage.visible = true && name !== "empty";
         }
         onReleased: {
             highlightImage.visible = false;

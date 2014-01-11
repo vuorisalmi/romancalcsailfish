@@ -211,6 +211,9 @@ Page {
                     onClicked: { calculator.pressRoman(name); }
                 }
                 CalcButton {
+                    name: "empty"
+                }
+                CalcButton {
                     name: "CLR"
                     onClicked: { calculator.pressClear(); }
                 }

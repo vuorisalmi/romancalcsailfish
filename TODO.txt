@@ -1,7 +1,7 @@
 Roman Calc / Sailfish OS
 ========================
 
-* Error situations and error messages
+* Color of the oper etc. buttons, non-white?
 
 * About page
 
@@ -11,11 +11,7 @@ Roman Calc / Sailfish OS
 
 * Bug: Button highlight stays if touch release elsewhere
 
-* Position of the CRL button, move it
-
 * Copy roman number to clipboard
-
-* Color of the oper etc. buttons, non-white?
 
 * Cover page
 
