@@ -1,5 +1,7 @@
 Roman Calc / Sailfish OS
-==================
+========================
+
+* Error situations and error messages
 
 * About page
 

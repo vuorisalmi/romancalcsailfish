@@ -98,6 +98,31 @@ Page {
         }
     }
 
+    // Error messages
+    Rectangle {
+        z: 2
+        width: parent.width
+        height: errorLabel.height
+        anchors.top: parent.top
+        anchors.left: parent.left
+        color: Theme.highlightColor //Theme.secondaryHighlightColor
+        opacity: 0.8
+        visible: calculator.isError
+    }
+    Label {
+        id: errorLabel
+        z: 2
+        width: parent.width
+        anchors.top: parent.top
+        anchors.left: parent.left
+        text: "Error: " + calculator.error
+        color: black
+        font.pixelSize: Theme.fontSizeSmall
+        horizontalAlignment: Text.AlignHCenter
+        wrapMode: Text.WordWrap
+        visible: calculator.isError
+    }
+
     // Non-pannable area with the calculator keypad
     Item {
         id: keypadbg
