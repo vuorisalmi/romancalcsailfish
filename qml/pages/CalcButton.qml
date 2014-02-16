@@ -42,13 +42,18 @@ Item {
         anchors.centerIn: parent
         width: 96
         height: 96
+        property int _minRelease: -8      // accept button release within mouse area +8 pixes,
+        property int _maxRelease: 96 + 8  // assume square area
 
         onPressed: {
             highlightImage.visible = true && name !== "empty";
         }
         onReleased: {
             highlightImage.visible = false;
-            calcButton.clicked();
+            if (mouse.x >= _minRelease && mouse.x < _maxRelease &&
+                    mouse.y >= _minRelease && mouse.y < _maxRelease) {
+                calcButton.clicked();
+            }
         }
     }
 }

@@ -7,8 +7,6 @@ Roman Calc / Sailfish OS
 
 * Oper button color when highlighted --> key not visible now
 
-* Bug: Button highlight stays if touch release elsewhere
-
 * Copy roman number to clipboard
 
 * Copyright comments in source files
