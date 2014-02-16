@@ -1,11 +1,7 @@
 Roman Calc / Sailfish OS
 ========================
 
-* About page
-
-* Landscape orientation for the about page
-
-* About roman numbers page, same as the other about page?
+* About page: highlight font colors
 
 * Highlight graphics of buttons
 
