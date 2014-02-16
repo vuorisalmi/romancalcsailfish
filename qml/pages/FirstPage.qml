@@ -35,20 +35,28 @@ import Sailfish.Silica 1.0
 Page {
     id: page
 
+    allowedOrientations: Orientation.Portrait + Orientation.Landscape + Orientation.LandscapeInverted
+
     Calculator {
         id: calculator
     }
 
     // Page and element sizes and other constants
     property int _keyButtonSize: 96  // hight == width
-    property int _keypadPaddingH: (Screen.width - (5 * _keyButtonSize)) / 6  // horizontal padding
-    property int _keypadPaddingV: Theme.paddingMedium  // vertical padding
-    property int _keypadHeight: (3 * _keyButtonSize) + (4 * _keypadPaddingV)
+    property int _keypadPadding5Buttons: (Screen.width - (5 * _keyButtonSize)) / 6  // padding for a 5-button row/column
+    property int _keypadPaddingH: page.isPortrait ? _keypadPadding5Buttons : Theme.paddingMedium  // horizontal padding
+    property int _keypadPaddingV: page.isPortrait ? Theme.paddingMedium : _keypadPadding5Buttons  // vertical padding
+    property int _keypadHeight: page.isPortrait ? ((3 * _keyButtonSize) + (4 * _keypadPaddingV)) : page.height
+    property int _keypadWidth: page.isPortrait ? page.width : ((3 * _keyButtonSize) + (4 * _keypadPaddingV))
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
         id: flickable
-        anchors.fill: parent
+        //anchors.fill: parent
+        anchors.top: parent.top
+        anchors.left: parent.left
+        width: page.isPortrait ? page.width : (page.width - _keypadWidth)
+        height: page.height
 
         // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
         PullDownMenu {
@@ -68,7 +76,7 @@ Page {
         Column {
             id: column
 
-            width: page.width - (2 * Theme.paddingLarge)
+            width: flickable.width - (2 * Theme.paddingLarge)
             anchors.horizontalCenter: parent.horizontalCenter
             spacing: 0
 
@@ -94,6 +102,7 @@ Page {
             Item {
                 width: parent.width
                 height: _keypadHeight + Theme.paddingMedium
+                visible: page.isPortrait // only goes under the keypad in portrait mode
             }
         }
     }
@@ -123,13 +132,14 @@ Page {
         visible: calculator.isError
     }
 
-    // Non-pannable area with the calculator keypad
+    // Non-pannable area with the calculator keypad -- portrait version
     Item {
         id: keypadbg
         anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        width: page.width
+        anchors.right: parent.right
+        width: _keypadWidth
         height: _keypadHeight
+        //visible: page.isPortrait
 
         Rectangle {
             anchors.fill: parent
@@ -137,28 +147,18 @@ Page {
             opacity: 0.4
         }
 
+        // Portrait version
         Column {
-            width: page.width
+            width: keypadbg.width
             spacing: _keypadPaddingV
             anchors.top: parent.top
             anchors.left: parent.left
             anchors.leftMargin: _keypadPaddingV
             anchors.topMargin: _keypadPaddingH
+            visible: page.isPortrait
 
             Row {
                 spacing: _keypadPaddingH
-                CalcButton {
-                    name: "plus"
-                    oper: "+"
-                    highlight: true
-                    onClicked: { calculator.pressOper(oper); }
-                }
-                CalcButton {
-                    name: "minus"
-                    oper: "−" // not "-"
-                    highlight: true
-                    onClicked: { calculator.pressOper(oper); }
-                }
                 CalcButton {
                     name: "multiply"
                     oper: "×"
@@ -168,6 +168,18 @@ Page {
                 CalcButton {
                     name: "divide"
                     oper: "÷"
+                    highlight: true
+                    onClicked: { calculator.pressOper(oper); }
+                }
+                CalcButton {
+                    name: "plus"
+                    oper: "+"
+                    highlight: true
+                    onClicked: { calculator.pressOper(oper); }
+                }
+                CalcButton {
+                    name: "minus"
+                    oper: "−" // not "-"
                     highlight: true
                     onClicked: { calculator.pressOper(oper); }
                 }
@@ -225,7 +237,107 @@ Page {
                     onClicked: { calculator.pressClear(); }
                 }
             }
-        } // Column
+        } // Column, portrait version
+
+        // Landscape version
+        Column {
+            width: keypadbg.width
+            spacing: _keypadPaddingV
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.leftMargin: _keypadPaddingV
+            anchors.topMargin: _keypadPaddingH
+            visible: page.isLandscape
+
+            Row {
+                spacing: _keypadPaddingH
+                CalcButton {
+                    name: "CLR"
+                    highlight: true
+                    onClicked: { calculator.pressClear(); }
+                }
+                CalcButton {
+                    name: "BkSp"
+                    highlight: true
+                    onClicked: { calculator.pressBackspace(); }
+                }
+                CalcButton {
+                    name: "equals"
+                    oper: "="
+                    highlight: true
+                    onClicked: { calculator.pressEquals(); }
+                }
+            }
+            Row {
+                spacing: _keypadPaddingH
+
+                CalcButton {
+                    name: "D"
+                    onClicked: { calculator.pressRoman(name); }
+                }
+                CalcButton {
+                    name: "M"
+                    onClicked: { calculator.pressRoman(name); }
+                }
+                CalcButton {
+                    name: "multiply"
+                    oper: "×"
+                    highlight: true
+                    onClicked: { calculator.pressOper(oper); }
+                }
+            }
+            Row {
+                spacing: _keypadPaddingH
+                CalcButton {
+                    name: "L"
+                    onClicked: { calculator.pressRoman(name); }
+                }
+                CalcButton {
+                    name: "C"
+                    onClicked: { calculator.pressRoman(name); }
+                }
+                CalcButton {
+                    name: "divide"
+                    oper: "÷"
+                    highlight: true
+                    onClicked: { calculator.pressOper(oper); }
+                }
+            }
+            Row {
+                spacing: _keypadPaddingH
+                CalcButton {
+                    name: "V"
+                    onClicked: { calculator.pressRoman(name); }
+                }
+                CalcButton {
+                    name: "X"
+                    onClicked: { calculator.pressRoman(name); }
+                }
+                CalcButton {
+                    name: "plus"
+                    oper: "+"
+                    highlight: true
+                    onClicked: { calculator.pressOper(oper); }
+                }
+            }
+            Row {
+                spacing: _keypadPaddingH
+                CalcButton {
+                    name: "I"
+                    onClicked: { calculator.pressRoman(name); }
+                }
+                CalcButton {
+                    name: "empty"
+                }
+                CalcButton {
+                    name: "minus"
+                    oper: "−" // not "-"
+                    highlight: true
+                    onClicked: { calculator.pressOper(oper); }
+                }
+            }
+        } // Column, landscape version
+
     }
 }
 

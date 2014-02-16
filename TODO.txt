@@ -3,13 +3,19 @@ Roman Calc / Sailfish OS
 
 * About page
 
+* Landscape orientation for the about page
+
 * About roman numbers page, same as the other about page?
 
 * Highlight graphics of buttons
 
+* Oper button color when highlighted --> key not visible now
+
 * Bug: Button highlight stays if touch release elsewhere
 
 * Copy roman number to clipboard
+
+* Copyright comments in source files
 
 * Cover page
 
