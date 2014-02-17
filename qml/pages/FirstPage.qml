@@ -37,9 +37,10 @@ Page {
 
     allowedOrientations: Orientation.Portrait + Orientation.Landscape + Orientation.LandscapeInverted
 
-    Calculator {
-        id: calculator
-    }
+    property Calculator calculator
+//    Calculator {
+//        id: calculator
+//    }
 
     // Page and element sizes and other constants
     property int _keyButtonSize: 96  // hight == width

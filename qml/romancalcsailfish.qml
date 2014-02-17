@@ -34,8 +34,13 @@ import "pages"
 
 ApplicationWindow
 {
-    initialPage: Component { FirstPage { } }
-    cover: Qt.resolvedUrl("cover/CoverPage.qml")
+    initialPage: Component { FirstPage { calculator: sharedCalculator } }
+    cover: Component { CoverPage { calculator: sharedCalculator } }
+    //cover: Qt.resolvedUrl("pages/CoverPage.qml")
+
+    Calculator {
+        id: sharedCalculator
+    }
 }
 
 
