@@ -1,6 +1,8 @@
 Roman Calc / Sailfish OS
 ========================
 
+* App icon
+
 * About page: highlight font colors
 
 * Highlight graphics of buttons
@@ -10,8 +12,6 @@ Roman Calc / Sailfish OS
 * Copyright comments in source files
 
 * Cover page
-
-* App icon
 
 * Desktop file: name
 
