@@ -5,8 +5,6 @@ Roman Calc / Sailfish OS
 
 * Highlight graphics of buttons
 
-* Oper button color when highlighted --> key not visible now
-
 * Copy roman number to clipboard
 
 * Copyright comments in source files

@@ -34,7 +34,7 @@ Item {
     ColorOverlay {
         anchors.fill: icon
         source: icon
-        color: highlight ? Theme.highlightColor : "transparent"
+        color: (highlight && !highlightImage.visible) ? Theme.highlightColor : "transparent"
     }
 
     MouseArea {
