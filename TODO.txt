@@ -1,17 +1,11 @@
 Roman Calc / Sailfish OS
 ========================
 
-* Bigger icon for the cover page
-
-* About page: highlight font colors
-
-* Highlight graphics of buttons
-
 * Copy roman number to clipboard
 
-* Copyright comments in source files
+* About page: all (incl. highlight) font colors
 
-* Cover page
+* Copyright comments in source files
 
 * Desktop file: name
 
@@ -19,3 +13,8 @@ Roman Calc / Sailfish OS
 
 * .rpm package version number and descirptions, changelog --> 1.0.0
 
+-----
+
+* Better clipboard icon for the cover page?
+
+* Some other type ("class") of highlight graphics of buttons

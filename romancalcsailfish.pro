@@ -44,5 +44,8 @@ OTHER_FILES += qml/romancalcsailfish.qml \
     TODO.txt \
     qml/pages/AboutPage.qml \
     graphics/romancalc_app_icon_86x86.svg \
-    qml/pages/CoverPage.qml
+    qml/pages/CoverPage.qml \
+    qml/icons/cover_CLR_92.png \
+    qml/icons/app_icon_128.png \
+    graphics/cover_buttons.svg
 

@@ -55,13 +55,13 @@ CoverBackground {
 
         // TODO: make a bigger icon
         CoverAction {
-            iconSource: "../icons/icon_CLR_64.png"
+            iconSource: "../icons/cover_CLR_92.png"
             onTriggered: { calculator.pressClear(); }
         }
 
-//        CoverAction {
-//            iconSource: "image://theme/icon-cover-pause"
-//        }
+        CoverAction {
+            iconSource: "image://theme/icon-l-clipboard"
+        }
     }
 }
 
