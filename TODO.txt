@@ -1,13 +1,11 @@
 Roman Calc / Sailfish OS
 ========================
 
-* Copy roman number to clipboard
+* Show decimal number? Toggle in menu
 
 * About page: all (incl. highlight) font colors
 
 * Copyright comments in source files
-
-* Desktop file: name
 
 * Cleanup: remove SecondPage, old CoverPage
 

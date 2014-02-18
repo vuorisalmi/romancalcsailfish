@@ -5,6 +5,12 @@ CoverBackground {
 
     property Calculator calculator
 
+    TextInput {
+        id: invisibleTextInput
+        visible: false // exists only for copying to the clipboard
+        text: calculator.romanExpression
+    }
+
     Column {
         visible: calculator.romanExpression.length === 0
         anchors.horizontalCenter: parent.horizontalCenter
@@ -61,6 +67,7 @@ CoverBackground {
 
         CoverAction {
             iconSource: "image://theme/icon-l-clipboard"
+            onTriggered: { invisibleTextInput.selectAll(); invisibleTextInput.copy(); }
         }
     }
 }

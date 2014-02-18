@@ -38,9 +38,12 @@ Page {
     allowedOrientations: Orientation.Portrait + Orientation.Landscape + Orientation.LandscapeInverted
 
     property Calculator calculator
-//    Calculator {
-//        id: calculator
-//    }
+
+    TextInput {
+        id: invisibleTextInput
+        visible: false // exists only for copying to the clipboard
+        text: calculator.romanExpression
+    }
 
     // Page and element sizes and other constants
     property int _keyButtonSize: 96  // hight == width
@@ -60,10 +63,14 @@ Page {
         height: page.height
 
         // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
-        PullDownMenu {
+        PullDownMenu { 
             MenuItem {
                 text: "About Roman Calculator"
                 onClicked: pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
+            }
+            MenuItem {
+                text: "Copy to clipboard"
+                onClicked: { invisibleTextInput.selectAll(); invisibleTextInput.copy(); }
             }
         }
 
