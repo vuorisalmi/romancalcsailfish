@@ -49,10 +49,11 @@ Page {
     property int _decHeight: Theme.fontSizeSmall  // hight of the deciman number display
     property int _keyButtonSize: 96  // hight == width
     property int _keypadPadding5Buttons: (Screen.width - (5 * _keyButtonSize)) / 6  // padding for a 5-button row/column
+    property int _keypadPadding5ButtonsAndDec: (Screen.width - _decHeight - (5 * _keyButtonSize)) / 7
     property int _keypadPaddingH: page.isPortrait ? _keypadPadding5Buttons : Theme.paddingMedium  // horizontal padding
-    property int _keypadPaddingV: page.isPortrait ? Theme.paddingMedium : _keypadPadding5Buttons  // vertical padding
+    property int _keypadPaddingV: page.isPortrait ? Theme.paddingMedium : _keypadPadding5ButtonsAndDec  // vertical padding
     property int _keypadHeight: page.isPortrait ? ((3 * _keyButtonSize) + (4 * _keypadPaddingV)) + (_showDec && (_decHeight + _keypadPaddingV)) : page.height
-    property int _keypadWidth: page.isPortrait ? page.width : ((3 * _keyButtonSize) + (4 * _keypadPaddingV))
+    property int _keypadWidth: page.isPortrait ? page.width : ((3 * _keyButtonSize) + (4 * _keypadPaddingH))
 
 
     property bool _showDec: false
@@ -155,7 +156,6 @@ Page {
         anchors.right: parent.right
         width: _keypadWidth
         height: _keypadHeight
-        //visible: page.isPortrait
 
         Rectangle {
             anchors.fill: parent
@@ -169,8 +169,8 @@ Page {
             spacing: _keypadPaddingV
             anchors.top: parent.top
             anchors.left: parent.left
-            anchors.leftMargin: _keypadPaddingV
-            anchors.topMargin: _keypadPaddingH
+            anchors.leftMargin: _keypadPaddingH
+            anchors.topMargin: _keypadPaddingV
             visible: page.isPortrait
 
             Item {
@@ -178,7 +178,6 @@ Page {
                 width: parent.width
                 height: _decHeight
                 Label {
-                    id: decLabel
                     anchors.top: parent.top
                     anchors.right: parent.right
                     anchors.rightMargin: Theme.paddingLarge * 1.5 // TODO: Why not just Theme.paddingLarge ???
@@ -278,9 +277,25 @@ Page {
             spacing: _keypadPaddingV
             anchors.top: parent.top
             anchors.left: parent.left
-            anchors.leftMargin: _keypadPaddingV
-            anchors.topMargin: _keypadPaddingH
+            anchors.leftMargin: _keypadPaddingH
+            anchors.topMargin: _keypadPaddingV
             visible: page.isLandscape
+
+            Item {
+                width: parent.width
+                height: _decHeight
+                Label {
+                    visible: _showDec
+                    anchors.top: parent.top
+                    anchors.right: parent.right
+                    anchors.rightMargin: Theme.paddingLarge * 1.5 // TODO: Why not just Theme.paddingLarge ???
+                    height: _decHeight
+                    text: calculator.decExpression
+                    font.pixelSize: Theme.fontSizeSmall
+                    color: Theme.secondaryColor
+                    horizontalAlignment: Text.AlignRight
+                }
+            }
 
             Row {
                 spacing: _keypadPaddingH

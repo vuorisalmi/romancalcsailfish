@@ -1,11 +1,9 @@
 Roman Calc / Sailfish OS
 ========================
 
-* Dec number: landscape mode
-
 * Dec number: fade in/out
 
-* Dec number: right alignment bug
+* Dec number: right alignment bug?
 
 * About page: all (incl. highlight) font colors
 
