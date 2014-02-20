@@ -1,7 +1,11 @@
 Roman Calc / Sailfish OS
 ========================
 
-* Show decimal number? Toggle in menu
+* Dec number: landscape mode
+
+* Dec number: fade in/out
+
+* Dec number: right alignment bug
 
 * About page: all (incl. highlight) font colors
 

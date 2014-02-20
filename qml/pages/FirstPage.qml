@@ -46,12 +46,16 @@ Page {
     }
 
     // Page and element sizes and other constants
+    property int _decHeight: Theme.fontSizeSmall  // hight of the deciman number display
     property int _keyButtonSize: 96  // hight == width
     property int _keypadPadding5Buttons: (Screen.width - (5 * _keyButtonSize)) / 6  // padding for a 5-button row/column
     property int _keypadPaddingH: page.isPortrait ? _keypadPadding5Buttons : Theme.paddingMedium  // horizontal padding
     property int _keypadPaddingV: page.isPortrait ? Theme.paddingMedium : _keypadPadding5Buttons  // vertical padding
-    property int _keypadHeight: page.isPortrait ? ((3 * _keyButtonSize) + (4 * _keypadPaddingV)) : page.height
+    property int _keypadHeight: page.isPortrait ? ((3 * _keyButtonSize) + (4 * _keypadPaddingV)) + (_showDec && (_decHeight + _keypadPaddingV)) : page.height
     property int _keypadWidth: page.isPortrait ? page.width : ((3 * _keyButtonSize) + (4 * _keypadPaddingV))
+
+
+    property bool _showDec: false
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
@@ -67,6 +71,10 @@ Page {
             MenuItem {
                 text: "About Roman Calculator"
                 onClicked: pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
+            }
+            MenuItem {
+                text: _showDec ? "Hide decimal expression" : "Show deciman expression"
+                onClicked: { _showDec = !_showDec }
             }
             MenuItem {
                 text: "Copy to clipboard"
@@ -164,6 +172,23 @@ Page {
             anchors.leftMargin: _keypadPaddingV
             anchors.topMargin: _keypadPaddingH
             visible: page.isPortrait
+
+            Item {
+                visible: _showDec
+                width: parent.width
+                height: _decHeight
+                Label {
+                    id: decLabel
+                    anchors.top: parent.top
+                    anchors.right: parent.right
+                    anchors.rightMargin: Theme.paddingLarge * 1.5 // TODO: Why not just Theme.paddingLarge ???
+                    height: _decHeight
+                    text: calculator.decExpression
+                    font.pixelSize: Theme.fontSizeSmall
+                    color: Theme.secondaryColor
+                    horizontalAlignment: Text.AlignRight
+                }
+            }
 
             Row {
                 spacing: _keypadPaddingH
