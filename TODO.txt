@@ -1,8 +1,6 @@
 Roman Calc / Sailfish OS
 ========================
 
-* About page: all (incl. highlight) font colors
-
 * License?
 
 * Copyright comments in source files
