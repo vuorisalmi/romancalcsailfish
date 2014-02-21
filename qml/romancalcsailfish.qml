@@ -36,8 +36,8 @@ ApplicationWindow
 {
     initialPage: Component { FirstPage { calculator: sharedCalculator } }
     cover: Component { CoverPage { calculator: sharedCalculator } }
-    //cover: Qt.resolvedUrl("pages/CoverPage.qml")
 
+    // The calculator is needed and shared by both the main page and the cover page
     Calculator {
         id: sharedCalculator
     }

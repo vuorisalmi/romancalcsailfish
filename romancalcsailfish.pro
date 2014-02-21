@@ -13,9 +13,7 @@ CONFIG += sailfishapp
 SOURCES += src/romancalcsailfish.cpp
 
 OTHER_FILES += qml/romancalcsailfish.qml \
-    qml/cover/CoverPage.qml \
     qml/pages/FirstPage.qml \
-    qml/pages/SecondPage.qml \
     rpm/romancalcsailfish.spec \
     rpm/romancalcsailfish.yaml \
     romancalcsailfish.desktop \

@@ -1,15 +1,15 @@
 Roman Calc / Sailfish OS
 ========================
 
-* Dec number: fade in/out
-
-* Dec number: right alignment bug?
-
 * About page: all (incl. highlight) font colors
+
+* License?
 
 * Copyright comments in source files
 
-* Cleanup: remove SecondPage, old CoverPage
+* Dec number: fade in/out
+
+* Dec number: right alignment bug?
 
 * .rpm package version number and descirptions, changelog --> 1.0.0
 
