@@ -1,10 +1,6 @@
 Roman Calc / Sailfish OS
 ========================
 
-* License?
-
-* Copyright comments in source files
-
 * Dec number: fade in/out
 
 * Dec number: right alignment bug?
