@@ -45,5 +45,7 @@ OTHER_FILES += qml/romancalcsailfish.qml \
     qml/pages/CoverPage.qml \
     qml/icons/cover_CLR_92.png \
     qml/icons/app_icon_128.png \
-    graphics/cover_buttons.svg
+    graphics/cover_buttons.svg \
+    README.txt \
+    LICENSE.txt
 

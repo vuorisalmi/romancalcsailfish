@@ -3,12 +3,12 @@ Roman Calc / Sailfish OS
 
 * Dec number: fade in/out
 
-* Dec number: right alignment bug?
-
 * .rpm package version number and descirptions, changelog --> 1.0.0
 
 -----
 
-* Better clipboard icon for the cover page?
+* Better icons for the cover page, both CLR and clipboard?
 
-* Some other type ("class") of highlight graphics of buttons
+* Some other type ("Sailfish glass") of highlight graphics of buttons
+
+* Dec number: right alignment bug?
