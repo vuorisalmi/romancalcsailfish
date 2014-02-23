@@ -1,10 +1,6 @@
 Roman Calc / Sailfish OS
 ========================
 
-* .rpm package version number and descirptions, changelog --> 1.0.0
-
------
-
 * Better icons for the cover page, both CLR and clipboard?
 
 * Cover page text: fade, not elide

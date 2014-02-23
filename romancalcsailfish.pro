@@ -24,7 +24,6 @@ OTHER_FILES += qml/romancalcsailfish.qml \
     qml/icons/icon_L_64.png \
     qml/icons/icon_D_64.png \
     qml/icons/icon_C_64.png \
-    qml/icon_menu_64.png \
     qml/pages/CalcButton.qml \
     qml/pages/Roman.qml \
     qml/pages/Calculator.qml \
