@@ -53,7 +53,8 @@ Page {
     property int _keypadPadding5ButtonsAndDec: (Screen.width - _decHeight - (5 * _keyButtonSize)) / 7
     property int _keypadPaddingH: page.isPortrait ? _keypadPadding5Buttons : Theme.paddingMedium  // horizontal padding
     property int _keypadPaddingV: page.isPortrait ? Theme.paddingMedium : _keypadPadding5ButtonsAndDec  // vertical padding
-    property int _keypadHeight: page.isPortrait ? ((3 * _keyButtonSize) + (4 * _keypadPaddingV)) + (_showDec && (_decHeight + _keypadPaddingV)) : page.height
+    //property int _keypadHeight: page.isPortrait ? ((3 * _keyButtonSize) + (4 * _keypadPaddingV)) + (_showDec && (_decHeight + _keypadPaddingV)) : page.height
+    property int _keypadHeight: page.isPortrait ? ((3 * _keyButtonSize) + (4 * _keypadPaddingV)) : page.height
     property int _keypadWidth: page.isPortrait ? page.width : ((3 * _keyButtonSize) + (4 * _keypadPaddingH))
 
     property bool _showDec: false
@@ -118,7 +119,7 @@ Page {
             // high enough so that it is not covered by the keypad
             Item {
                 width: parent.width
-                height: _keypadHeight + Theme.paddingMedium
+                height: _keypadHeight + Theme.paddingMedium + (_showDec && (_decHeight + _keypadPaddingV))
                 visible: page.isPortrait // only goes under the keypad in portrait mode
             }
         }
@@ -149,7 +150,7 @@ Page {
         visible: calculator.isError
     }
 
-    // Non-pannable area with the calculator keypad -- portrait version
+    // Non-pannable area with the calculator keypad
     Item {
         id: keypadbg
         anchors.bottom: parent.bottom
@@ -157,10 +158,67 @@ Page {
         width: _keypadWidth
         height: _keypadHeight
 
+        states: [
+            State {
+                name: "decHidden"
+                when: !_showDec
+                PropertyChanges { target: decLabel; opacity: 0.0 }
+                PropertyChanges { target: decBackground; opacity: 0.0 }
+            },
+            State {
+                name: "decVisible"
+                when: _showDec
+                PropertyChanges { target: decLabel; opacity: 1.0 }
+                PropertyChanges { target: decBackground; opacity: 0.4 } // 0.4 is the same as keypad BG opacity
+            }
+        ]
+
+        transitions: [
+            Transition {
+                from: "decHidden"
+                to: "decVisible"
+                SequentialAnimation {
+                    PropertyAnimation { properties: "opacity"; duration: 500 }
+                }
+            },
+            Transition {
+                from: "decVisible"
+                to: "decHidden"
+                SequentialAnimation {
+                    PropertyAnimation { properties: "opacity"; duration: 500 }
+                }
+            }
+        ]
+
+        // Background fill of the keypad
         Rectangle {
             anchors.fill: parent
             color: "#000000"
             opacity: 0.4
+        }
+        // Background fill of the decimal expression -- not always visible
+        Rectangle {
+            id: decBackground
+            visible: page.isPortrait  // portrait/landscape visibility not handled by the states/transitions
+            anchors.bottom: parent.top
+            anchors.left: parent.left
+            width: parent.width
+            height: _decHeight + _keypadPaddingV
+            color: "#000000"
+            //opacity: 0.4
+        }
+        // Decimal expression label -- not always visible
+        Label {
+            id: decLabel
+            anchors.top: (page.isLandscape) ? parent.top : decBackground.top
+            anchors.right: parent.right
+            anchors.topMargin: _keypadPaddingV
+            anchors.rightMargin: Theme.paddingLarge
+            height: _decHeight
+            text: calculator.decExpression
+            font.pixelSize: Theme.fontSizeSmall
+            color: Theme.secondaryColor
+            horizontalAlignment: Text.AlignRight
         }
 
         // Portrait version
@@ -172,22 +230,6 @@ Page {
             anchors.leftMargin: _keypadPaddingH
             anchors.topMargin: _keypadPaddingV
             visible: page.isPortrait
-
-            Item {
-                visible: _showDec
-                width: parent.width
-                height: _decHeight
-                Label {
-                    anchors.top: parent.top
-                    anchors.right: parent.right
-                    anchors.rightMargin: Theme.paddingLarge * 1.5 // TODO: Why not just Theme.paddingLarge ???
-                    height: _decHeight
-                    text: calculator.decExpression
-                    font.pixelSize: Theme.fontSizeSmall
-                    color: Theme.secondaryColor
-                    horizontalAlignment: Text.AlignRight
-                }
-            }
 
             Row {
                 spacing: _keypadPaddingH
@@ -284,17 +326,6 @@ Page {
             Item {
                 width: parent.width
                 height: _decHeight
-                Label {
-                    visible: _showDec
-                    anchors.top: parent.top
-                    anchors.right: parent.right
-                    anchors.rightMargin: Theme.paddingLarge * 1.5 // TODO: Why not just Theme.paddingLarge ???
-                    height: _decHeight
-                    text: calculator.decExpression
-                    font.pixelSize: Theme.fontSizeSmall
-                    color: Theme.secondaryColor
-                    horizontalAlignment: Text.AlignRight
-                }
             }
 
             Row {

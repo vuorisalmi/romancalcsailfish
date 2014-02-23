@@ -76,6 +76,16 @@ Page {
                 wrapMode: TextEdit.WordWrap
                 width: parent.width
             }
+            Label {
+                text: __srcExplanation
+                color: Theme.highlightColor
+                linkColor: "#ffffff"
+                wrapMode: TextEdit.WordWrap
+                width: parent.width
+                onLinkActivated: {
+                    Qt.openUrlExternally(link)
+                }
+            }
             PageHeader {
                 title: "Abour Roman Numbers"
             }
@@ -96,6 +106,10 @@ Page {
     property string __aboutExplanation: "The Roman Calculator is my personal application porting \
 test/example for different platforms. It was originally written in Python/Qt for the Nokia Maemo platform \
 and later re-written on QML/JavaScript for MeeGo/N9. That was easily ported to SailfishOS."
+
+    property string __srcExplanation: "Source code available in \
+<a href=\"https://github.com/vuorisalmi/romancalcsailfish\">https://github.com/vuorisalmi/romancalcsailfish</a> \
+under the terms of BSD license."
 
     property string __romanExplanation: "Roman numbers have quite a few limitations. \
 Therefore, some choises had to be made for the calculator.\

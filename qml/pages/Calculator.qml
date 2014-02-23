@@ -45,6 +45,7 @@ Item {
     property string error: ""
     property string fullError: ""
     property int maxRoman: 10000000
+    property string _maxRomanString: "M×M×X"
 
     Roman {
         id: value1
@@ -144,7 +145,7 @@ Item {
         if (result > maxRoman) {
             throw {
                 name: "ValueError",
-                message: "Too large number, max is " + maxRoman
+                message: "Too large number, max is " + _maxRomanString + " (" + maxRoman + ")"
             };
         } else {
             value1.setDec(result);
