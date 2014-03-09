@@ -6,20 +6,17 @@
 #         - desktop icon filename must be changed
 #         - desktop filename must be changed
 #         - icon definition filename in desktop file must be changed
-TARGET = romancalcsailfish
+TARGET = harbour-romancalc
 
 CONFIG += sailfishapp
 
-SOURCES += src/romancalcsailfish.cpp
+SOURCES += src/harbour-romancalc.cpp
 
-OTHER_FILES += qml/romancalcsailfish.qml \
+OTHER_FILES += qml/harbour-romancalc.qml \
     qml/pages/FirstPage.qml \
-    rpm/romancalcsailfish.spec \
-    rpm/romancalcsailfish.yaml \
-    romancalcsailfish.desktop \
-    ../sftestapp/qml/pages/icon_M_64.png \
-    ../sftestapp/qml/pages/icon_L_64.png \
-    ../sftestapp/qml/pages/icon_D_64.png \
+    rpm/harbour-romancalc.spec \
+    rpm/harbour-romancalc.yaml \
+    harbour-romancalc.desktop \
     qml/icons/icon_M_64.png \
     qml/icons/icon_L_64.png \
     qml/icons/icon_D_64.png \

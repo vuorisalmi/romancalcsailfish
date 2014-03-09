@@ -1,7 +1,7 @@
   Copyright (c) 2013-2014, Jussi Vuorisalmi <jussi.vuorisalmi@iki.fi>
   All rights reserved.
 
-  This file is part of the romancalcsailfish package.
+  This file is part of the romancalcsailfish (harbour-romancalc) package.
 
   You may use this file under the terms of BSD license as follows:
 
