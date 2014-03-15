@@ -31,7 +31,6 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtGraphicalEffects 1.0
 
 Item {
     id: calcButton
@@ -60,12 +59,16 @@ Item {
         id: icon
         source: "../icons/icon_" + name + "_64.png"
         anchors.centerIn: parent
-        visible: name !== "empty"
+        visible: name !== "empty" && !highlight
     }
-    ColorOverlay {
-        anchors.fill: icon
-        source: icon
-        color: (highlight && !highlightImage.visible) ? Theme.highlightColor : "transparent"
+    // Icon shown in highlight color
+    RGBIcon {
+        id: rgbIcon
+        color: (highlight && !highlightImage.visible) ? Theme.highlightColor : "white"
+        source: "../icons/icon_" + name + "_?_64.png"
+        anchors.centerIn: parent
+        visible: highlight
+        width: 64; height: 64
     }
 
     MouseArea {

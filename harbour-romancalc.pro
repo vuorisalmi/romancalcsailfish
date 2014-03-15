@@ -27,14 +27,7 @@ OTHER_FILES += qml/harbour-romancalc.qml \
     qml/pages/romanhelp.js \
     qml/icons/icon_X_64.png \
     qml/icons/icon_V_64.png \
-    qml/icons/icon_plus_64.png \
-    qml/icons/icon_multiply_64.png \
-    qml/icons/icon_minus_64.png \
     qml/icons/icon_I_64.png \
-    qml/icons/icon_equals_64.png \
-    qml/icons/icon_divide_64.png \
-    qml/icons/icon_CLR_64.png \
-    qml/icons/icon_BkSp_64.png \
     TODO.txt \
     qml/pages/AboutPage.qml \
     graphics/romancalc_app_icon_86x86.svg \
@@ -43,5 +36,62 @@ OTHER_FILES += qml/harbour-romancalc.qml \
     qml/icons/app_icon_128.png \
     graphics/cover_buttons.svg \
     README.txt \
-    LICENSE.txt
+    LICENSE.txt \
+    qml/icons/icon_BkSp_white_64.png \
+    qml/icons/icon_CLR_white_64.png \
+    qml/icons/icon_equals_white_64.png \
+    qml/pages/RGBIcon.qml \
+    qml/icons/icon_divide_white_64.png \
+    qml/icons/icon_minus_white_64.png \
+    qml/icons/icon_multiply_white_64.png \
+    qml/icons/icon_plus_white_64.png \
+    qml/icons/icon_BkSp_red+green_64.png \
+    qml/icons/icon_BkSp_red+blue_64.png \
+    qml/icons/icon_BkSp_red_64.png \
+    qml/icons/icon_BkSp_green+blue_64.png \
+    qml/icons/icon_BkSp_green_64.png \
+    qml/icons/icon_BkSp_blue_64.png \
+    qml/icons/icon_BkSp_black_64.png \
+    qml/icons/icon_CLR_red+green_64.png \
+    qml/icons/icon_CLR_red+blue_64.png \
+    qml/icons/icon_CLR_red_64.png \
+    qml/icons/icon_CLR_green+blue_64.png \
+    qml/icons/icon_CLR_green_64.png \
+    qml/icons/icon_CLR_blue_64.png \
+    qml/icons/icon_CLR_black_64.png \
+    qml/icons/icon_divide_red+green_64.png \
+    qml/icons/icon_divide_red+blue_64.png \
+    qml/icons/icon_divide_red_64.png \
+    qml/icons/icon_divide_green+blue_64.png \
+    qml/icons/icon_divide_green_64.png \
+    qml/icons/icon_divide_blue_64.png \
+    qml/icons/icon_divide_black_64.png \
+    qml/icons/icon_equals_red+green_64.png \
+    qml/icons/icon_equals_red+blue_64.png \
+    qml/icons/icon_equals_red_64.png \
+    qml/icons/icon_equals_green+blue_64.png \
+    qml/icons/icon_equals_green_64.png \
+    qml/icons/icon_equals_blue_64.png \
+    qml/icons/icon_equals_black_64.png \
+    qml/icons/icon_minus_red+green_64.png \
+    qml/icons/icon_minus_red+blue_64.png \
+    qml/icons/icon_minus_red_64.png \
+    qml/icons/icon_minus_green+blue_64.png \
+    qml/icons/icon_minus_green_64.png \
+    qml/icons/icon_minus_blue_64.png \
+    qml/icons/icon_minus_black_64.png \
+    qml/icons/icon_multiply_red+green_64.png \
+    qml/icons/icon_multiply_red+blue_64.png \
+    qml/icons/icon_multiply_red_64.png \
+    qml/icons/icon_multiply_green+blue_64.png \
+    qml/icons/icon_multiply_green_64.png \
+    qml/icons/icon_multiply_blue_64.png \
+    qml/icons/icon_multiply_black_64.png \
+    qml/icons/icon_plus_red+green_64.png \
+    qml/icons/icon_plus_red+blue_64.png \
+    qml/icons/icon_plus_red_64.png \
+    qml/icons/icon_plus_green+blue_64.png \
+    qml/icons/icon_plus_green_64.png \
+    qml/icons/icon_plus_blue_64.png \
+    qml/icons/icon_plus_black_64.png
 
