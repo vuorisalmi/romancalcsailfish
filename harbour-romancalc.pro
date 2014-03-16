@@ -93,5 +93,6 @@ OTHER_FILES += qml/harbour-romancalc.qml \
     qml/icons/icon_plus_green+blue_64.png \
     qml/icons/icon_plus_green_64.png \
     qml/icons/icon_plus_blue_64.png \
-    qml/icons/icon_plus_black_64.png
+    qml/icons/icon_plus_black_64.png \
+    graphics/calc_buttons.svg
 
