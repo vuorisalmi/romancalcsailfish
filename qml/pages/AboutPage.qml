@@ -55,7 +55,7 @@ Page {
                 title: "Roman Calculator"
             }
             Label {
-                text: "Version 1.0.0"
+                text: "Version 1.0.1"
                 color: Theme.highlightColor
                 wrapMode: TextEdit.WordWrap
                 width: parent.width
