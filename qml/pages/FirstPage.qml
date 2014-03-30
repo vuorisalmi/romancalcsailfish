@@ -40,12 +40,6 @@ Page {
 
     property Calculator calculator
 
-    TextInput {
-        id: invisibleTextInput
-        visible: false // exists only for copying to the clipboard
-        text: calculator.romanExpression
-    }
-
     // Page and element sizes and other constants
     property int _decHeight: Theme.fontSizeSmall  // hight of the deciman number display
     property int _keyButtonSize: 96  // hight == width
@@ -75,12 +69,12 @@ Page {
                 onClicked: pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
             }
             MenuItem {
-                text: _showDec ? "Hide decimal expression" : "Show deciman expression"
+                text: _showDec ? "Hide decimal expression" : "Show decimal expression"
                 onClicked: { _showDec = !_showDec }
             }
             MenuItem {
                 text: "Copy to clipboard"
-                onClicked: { invisibleTextInput.selectAll(); invisibleTextInput.copy(); }
+                onClicked: { Clipboard.text = calculator.romanExpression; }
             }
         }
 
@@ -132,7 +126,7 @@ Page {
         height: errorLabel.height
         anchors.top: parent.top
         anchors.left: parent.left
-        color: Theme.highlightColor //Theme.secondaryHighlightColor
+        color: Theme.highlightColor
         opacity: 0.8
         visible: calculator.isError
     }
@@ -143,7 +137,7 @@ Page {
         anchors.top: parent.top
         anchors.left: parent.left
         text: "Error: " + calculator.error
-        color: black
+        color: "black"
         font.pixelSize: Theme.fontSizeSmall
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap

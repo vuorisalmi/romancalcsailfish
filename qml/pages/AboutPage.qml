@@ -55,7 +55,7 @@ Page {
                 title: "Roman Calculator"
             }
             Label {
-                text: "Version 1.0.1"
+                text: "Version 1.0.2"
                 color: Theme.highlightColor
                 wrapMode: TextEdit.WordWrap
                 width: parent.width
@@ -103,9 +103,8 @@ Page {
 
     }
 
-    property string __aboutExplanation: "The Roman Calculator is my personal application porting \
-test/example for different platforms. It was originally written in Python/Qt for the Nokia Maemo platform \
-and later re-written on QML/JavaScript for MeeGo/N9. That was easily ported to SailfishOS."
+    property string __aboutExplanation: "The Roman Calculator was originally written in Python/Qt for the Nokia Maemo platform \
+and later re-written on QML/JavaScript for MeeGo/N9. That version is now (easily) ported to SailfishOS."
 
     property string __srcExplanation: "Source code available in \
 <a href=\"https://github.com/vuorisalmi/romancalcsailfish\">https://github.com/vuorisalmi/romancalcsailfish</a> \
